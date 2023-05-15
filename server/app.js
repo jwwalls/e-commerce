@@ -9,13 +9,13 @@ const morgan = require('morgan');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan('dev'));
-app.use(express.static(path.join(__dirname, './client', 'dist')));
+app.use(express.static(path.join(__dirname, '../client/dist/')));
 
 app.use('/api', require('./api'));
 
 app.use((req, res, next) => {
   try {
-    res.status(404).send("Sorry, can't find that! :/");
+    res.sendFile(path.join(__dirname, '../client/dist', 'index.html'));
   } catch (error) {
     console.errror(error);
     throw error;
