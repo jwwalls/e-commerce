@@ -60,7 +60,7 @@ router.get('/:id', async (req, res, next) => {
     const values = [id];
     const result = await client.query(query, values);
     const product = result.rows[0];
-
+    
     // Send a response with the product
     res.json({ product });
   } catch (error) {
