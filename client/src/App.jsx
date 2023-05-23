@@ -1,15 +1,23 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import { useState } from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import Navbar from './pages/NavBar';
+import Footer from './components/Footer';
+import RRoutes from './components/Routes'; 
+import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [token, setToken] = useState(null);
+  const [user, setUser] = useState(null);
 
   return (
-    <div className="App">
-   sadsadsadsaasdassasadasassdaaasda
-    </div>
+    <Router>
+      <div className="App">
+        <Navbar />
+        <RRoutes token={token} setToken={setToken} user={user} setUser={setUser} />
+        <Footer />
+      </div>
+    </Router>
   )
 }
 
-export default App
+export default App;

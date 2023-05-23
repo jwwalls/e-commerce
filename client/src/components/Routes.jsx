@@ -1,18 +1,18 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import Home from "../Pages/Home";
-import Login from "./Login";
-import CreatePost from "./CreatePost";
-import SingleProduct from "./SingleProduct.jsx";
-import MyShoes from "./MyShoes";
-import Products from "./Pruducts.jsx";
+import Home from "../pages/Home";
+import Login from "../components/Login";
+import CreatePost from "../components/CreatePost";
+import SingleProduct from "../pages/SingleProduct.jsx";
+import MyShoes from "../components/MyShoes";
+import Products from "../pages/Products.jsx";
 import Checkout from "../pages/Checkout";
 import User from "../pages/User";
 import NavBar from "../pages/NavBar";
-import Footer from "../pages/Footer";
-import EditPost from "../pages/EditPost";
-import DeletePost from "../pages/DeletePost";
-import EditCart from "../pages/EditCart";
+import Footer from "../components/Footer";
+import EditPost from "../components/EditPost";
+import DeletePost from "../components/DeletePost";
+import EditCart from "../components/EditCart";
 import "../App.css";
 
 
@@ -25,7 +25,7 @@ const RRoutes = ({ token, setToken, user, setUser }) => {
         <Route
           path="/login"
           element={
-            <Login
+            <User
               token={token}
               setToken={setToken}
               user={user}
@@ -61,7 +61,7 @@ const RRoutes = ({ token, setToken, user, setUser }) => {
 
         <Route path="/cart" element={<Checkout/>}></Route>
 
-        <Route path="/:id" element={<User/>}></Route>
+        <Route path="/:id" element={<Login/>}></Route>
 
         <Route path="/nav-bar" element={<NavBar/>}></Route>
 

@@ -1,0 +1,30 @@
+.navbar {
+    background-color: transparent;
+    padding: 15px 0;
+    color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-nav {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-item {
+    display: inline-block;
+}
+
+.nav-item a {
+    color: #F34E0E; /* changed color to F34E0E */
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+.nav-item a:hover,
+.nav-item a.active {
+    color: grey; /* changed color to grey */
+}
