@@ -1,11 +1,21 @@
-import React from 'react'
+import React from 'react';
 
-async function DeletePost(id){
-  const response = await fetch(`${url}/${id}`, {
+const DeletePost = ({ id, userId }) => {
+  const handleDelete = async () => {
+    const response = await fetch(`${url}/${id}`, {
       method: 'DELETE',
-  });
-  const result = await response.json()
-  return result;
-}
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${userId}`,
+      },
+    });
+    const result = await response.json();
+    console.log(result);
+  };
 
-export default DeletePost
+  return (
+    <button onClick={handleDelete}>Delete Post</button>
+  );
+};
+
+export default DeletePost;
