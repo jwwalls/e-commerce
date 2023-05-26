@@ -1,64 +1,95 @@
-const axios = require('axios');
-
-const BASE_URL = 'https://your-api-base-url/api/cart';
+const BASE_URL = 'http://localhost:8080/api/cart';
 
 // Add an item to the cart
-async function addToCart(userId, productId, quantity) {
+export async function addToCart(userId, productId, quantity) {
   try {
-    const response = await axios.post(`${BASE_URL}/add`, {
-      user_id: userId,
-      product_id: productId,
-      quantity,
+    console.log('Adding item to cart', userId, productId, quantity);
+    const response = await fetch(`${BASE_URL}/add`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        user_id: userId,
+        product_id: productId,
+        quantity,
+      }),
     });
 
-    return response.data.cartItemId;
+    if (!response.ok) {
+      throw new Error('Failed to add item to cart');
+    }
+
+    const data = await response.json();
+    return data.cartItemId;
   } catch (error) {
-    console.error(error.response.data.error || 'Failed to add item to cart');
+    console.error(error.message || 'Failed to add item to cart');
   }
 }
 
-// Get cart items for a user
-async function getCartItems(userId) {
+export async function getCartItems(userId) {
   try {
-    const response = await axios.get(`${BASE_URL}/user/${userId}`);
+    if (!userId) {
+      throw new Error('User ID is missing');
+    }
 
-    return response.data.cartItems;
+    const response = await fetch(`${BASE_URL}/user/${userId}`);
+
+    if (!response.ok) {
+      throw new Error('Failed to retrieve cart items');
+    }
+
+    const data = await response.json();
+    return data.cartItems;
   } catch (error) {
     console.error(
-      error.response.data.message || 'Failed to retrieve cart items'
+      error.message || 'Failed to retrieve cart items'
     );
+    throw error;
   }
 }
 
+
+
 // Remove an item from the cart
-async function removeFromCart(cartId) {
+export async function removeFromCart(cartId) {
   try {
-    const response = await axios.delete(`${BASE_URL}/${cartId}`);
+    const response = await fetch(`${BASE_URL}/${cartId}`, {
+      method: 'DELETE',
+    });
+
+    if (!response.ok) {
+      throw new Error('Failed to remove item from cart');
+    }
 
     return response.status === 204;
   } catch (error) {
     console.error(
-      error.response.data.message || 'Failed to remove item from cart'
+      error.message || 'Failed to remove item from cart'
     );
   }
 }
 
 // Perform cart checkout
-async function checkout(userId) {
+export async function checkout(userId) {
   try {
-    const response = await axios.post(`${BASE_URL}/checkout`, {
-      userId,
+    const response = await fetch(`${BASE_URL}/checkout`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        userId,
+      }),
     });
+
+    if (!response.ok) {
+      throw new Error('Failed to perform checkout');
+    }
 
     return response.status === 200;
   } catch (error) {
-    console.error(error.response.data.message || 'Failed to perform checkout');
+    console.error(error.message || 'Failed to perform checkout');
   }
 }
 
-module.exports = {
-  addToCart,
-  getCartItems,
-  removeFromCart,
-  checkout,
-};

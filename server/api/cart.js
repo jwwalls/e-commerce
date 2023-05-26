@@ -61,9 +61,9 @@ router.get('/user/:userId', async (req, res, next) => {
     } catch (error) {
       next(error);
     }
-  });
+  }
+);
   
-
 // DELETE: api/cart/:itemId
 router.delete('/:cartId', async (req, res, next) => {
     const { cartId } = req.params;

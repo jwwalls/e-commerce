@@ -1,60 +1,78 @@
-const axios = require('axios');
-
-const BASE_URL = 'localhost:8080/api/users';
+const BASE_URL = 'http://localhost:8080/api/users';
 
 // Create a new user
-async function createUser(username, password) {
+export async function createUser(username, password) {
   try {
-    const response = await axios.post(`${BASE_URL}`, {
-      username,
-      password,
+    const response = await fetch(BASE_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ username, password })
     });
 
-    return response.data;
+    if (!response.ok) {
+      throw new Error('Failed to create user');
+    }
+
+    const data = await response.json();
+    console.log(data);
+    return data;
   } catch (error) {
-    console.error(error.response.data.message || 'Failed to create user');
+    console.error(error.message || 'Failed to create user');
   }
 }
 
 // User login
-async function loginUser(username, password) {
+export async function loginUser(username, password) {
   try {
-    const response = await axios.post(`${BASE_URL}/login`, {
-      username,
-      password,
+    const response = await fetch(`${BASE_URL}/login`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ username, password })
     });
 
-    return response.data;
+    if (!response.ok) {
+      throw new Error('Invalid username or password');
+    }
+
+    const data = await response.json();
+    return data;
   } catch (error) {
-    console.error(error.response.data.message || 'Invalid username or password');
+    console.error(error.message || 'Invalid username or password');
   }
 }
 
 // Get a user by ID
-async function getUserById(id) {
+export async function getUserById(id) {
   try {
-    const response = await axios.get(`${BASE_URL}/${id}`);
+    const response = await fetch(`${BASE_URL}/${id}`);
 
-    return response.data;
+    if (!response.ok) {
+      throw new Error('User not found');
+    }
+
+    const data = await response.json();
+    return data;
   } catch (error) {
-    console.error(error.response.data.message || 'User not found');
+    console.error(error.message || 'User not found');
   }
 }
 
 // Get a user by username
-async function getUserByUsername(username) {
+export async function getUserByUsername(username) {
   try {
-    const response = await axios.get(`${BASE_URL}/username/${username}`);
+    const response = await fetch(`${BASE_URL}/username/${username}`);
 
-    return response.data;
+    if (!response.ok) {
+      throw new Error('User not found');
+    }
+
+    const data = await response.json();
+    return data;
   } catch (error) {
-    console.error(error.response.data.message || 'User not found');
+    console.error(error.message || 'User not found');
   }
 }
-
-module.exports = {
-  createUser,
-  loginUser,
-  getUserById,
-  getUserByUsername,
-};

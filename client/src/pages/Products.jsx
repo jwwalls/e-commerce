@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { getProducts } from '../api/products';
+import { addToCart } from '../api/cart';
+import { useNavigate } from 'react-router-dom';
 import '../css/Products.css';
 
 function Products() {
   const [products, setProducts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [productsPerPage] = useState(9);
+  const [userId, setUserId] = useState('');
 
   const location = useLocation();
   const category = location.pathname.split("/")[2]; // Get category from URL
@@ -23,15 +26,16 @@ function Products() {
       }
     };
 
-    fetchProducts();
-  }, [category]);  // add category as a dependency
+    const storedUserId = localStorage.getItem('userId');
+    setUserId(storedUserId);
 
-  // Get current posts
+    fetchProducts();
+  }, [category]);
+
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
   const currentProducts = products.slice(indexOfFirstProduct, indexOfLastProduct);
 
-  // Change page
   const paginate = pageNumber => setCurrentPage(pageNumber);
 
   // Navigate to single product
@@ -50,7 +54,7 @@ function Products() {
         </div>
       ))}
       <div className="pagination">
-        {[...Array(Math.ceil(products.length / productsPerPage))].map((e, i) => (
+        {[...Array(Math.ceil(products.length / productsPerPage))].map((_, i) => (
           <button key={i} onClick={() => paginate(i + 1)}>{i + 1}</button>
         ))}
       </div>
