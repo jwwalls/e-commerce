@@ -9,11 +9,10 @@
     "start:dev": "(npm run dev --prefix client) & nodemon server/index.js",
     "seed": "node server/db/seed.js"
   },
-  "author": "Sean Hagstrom",
+  "author": "Team Object",
   "license": "ISC",
   "dependencies": {
     "@vitejs/plugin-react": "^4.0.0",
-    "axios": "^1.4.0",
     "bcrypt": "^5.1.0",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
@@ -21,7 +20,7 @@
     "jsonwebtoken": "^9.0.0",
     "morgan": "^1.10.0",
     "multer": "^1.4.5-lts.1",
-    "pg": "^8.8.0",
+    "pg": "^8.11.0",
     "react-router-dom": "^6.11.2",
     "vite": "^4.3.8"
   },

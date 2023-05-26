@@ -49,7 +49,9 @@ const RRoutes = ({ token, setToken, user, setUser }) => {
           }
         ></Route>
 
-        <Route path="/shop" element={<Products token={token} />} state={{}} />
+        <Route path="/shop/men" element={<Products category="men" />} />
+<Route path="/shop/women" element={<Products category="women" />} />
+<Route path="/shop/sale" element={<Products category="sale" />} />
 
         <Route path="/cart" element={<Checkout />}></Route>
 
