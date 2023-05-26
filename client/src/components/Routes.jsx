@@ -66,6 +66,7 @@ const RRoutes = ({ token, setToken, user, setUser }) => {
         <Route path="/post-delete" element={<DeletePost />}></Route>
 
         <Route path="/cart-edit" element={<EditCart />}></Route>
+        <Route path="/shoe/:id" element={<SingleProduct />} />
       </Routes>
     </div>
   );

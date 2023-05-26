@@ -1,11 +1,64 @@
-import React from 'react'
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import {getProductById} from '../api/products';
+import '../css/SingleProduct.css';
 
 function SingleProduct() {
+  const { id } = useParams();
+  const [product, setProduct] = useState(null);
+  const [selectedSize, setSelectedSize] = useState('7');
+
+  // Define an array of shoe sizes
+  const shoeSizes = [];
+  for (let i = 7; i <= 13; i += 0.5) {
+    shoeSizes.push(i.toString());
+  }
+
+  useEffect(() => {
+    const fetchProduct = async () => {
+      try {
+        const product = await getProductById(id);
+        setProduct(product);
+      } catch (error) {
+        console.error(error.message || 'Failed to retrieve product');
+      }
+    };
+
+    fetchProduct();
+  }, [id]);
+
+  // Handler function for the select element
+  const handleSizeChange = (e) => {
+    setSelectedSize(e.target.value);
+  };
+
+  if (!product) return null;
+
   return (
-    <div>
-        <h1>welcome</h1>
+    <div className="single-product">
+      <div className="product-image">
+        <h1>{product.name}</h1>
+        <img src={product.image_url} alt={product.name} />
+        <label htmlFor="size-selector">Size:</label>
+        <select id="size-selector" value={selectedSize} onChange={handleSizeChange}>
+          {shoeSizes.map((size, index) => (
+            <option key={index} value={size}>{size}</option>
+          ))}
+        </select>
+        <button onClick={() => addToCart(product, selectedSize)}>Add to Cart</button>
+      </div>
+      <div className="product-details">
+        <p>Features: {product.shoeFeatures}</p>
+        <p>Material Quality: {product.materialQuality}</p>
+        <p>Sizes and Accessories: {product.sizesAccessories}</p>
+        <p>Price: {product.price}</p>
+      </div>
     </div>
-  )
+  );
 }
 
-export default SingleProduct
+const addToCart = (product, size) => {
+  // ...your code to add the product to the cart...
+};
+
+export default SingleProduct;

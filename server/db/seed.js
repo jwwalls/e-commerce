@@ -88,15 +88,12 @@ const createInitialProducts = async () => {
     const products = [
       {
         name: "SparkStride",
-        shoeFeatures: `
-          - Lightweight design, perfect for running and jogging. 
-          - Breathable mesh upper for enhanced airflow. 
-          - Cushioned midsole for superior comfort and shock absorption.`,
+        shoeFeatures: "Lightweight",
         materialQuality: `
           - Premium leather upper for a luxurious look and durability. 
           - High-quality craftsmanship for long-lasting performance.`,
         sizesAccessories: `
-          - Available in sizes ranging from US 6 to 14, including half sizes. 
+          - Available in sizes ranging from US 7 to 13, including half sizes. 
           - Comes with an additional set of colorful shoelaces for customization. 
           - Shoebox included.`,
         price: 130,
@@ -113,7 +110,7 @@ const createInitialProducts = async () => {
           - Made with durable leather and synthetic upper for high-performance. 
           - Slip-resistant rubber outsole for reliable traction.`,
         sizesAccessories: `
-          - Available in sizes ranging from US 6 to 14, including half sizes.
+          - Available in sizes ranging from US 7 to 13, including half sizes.
           - Includes spare laces in a contrast color.
           - Shoebox included.`,
         price: 120,
@@ -130,7 +127,7 @@ const createInitialProducts = async () => {
           - Constructed with organic cotton upper and natural rubber soles.
           - Ethically produced for sustainable fashion.`,
         sizesAccessories: `
-          - Available in sizes ranging from US 6 to 14, including half sizes.
+          - Available in sizes ranging from US 7 to 13, including half sizes.
           - Comes with additional colored shoelaces for personal customization.
           - Shoebox included.`,
         price: 95,
@@ -147,7 +144,7 @@ const createInitialProducts = async () => {
           - Made with breathable fabric upper for air circulation.
           - High elasticity outsole for diverse movements.`,
         sizesAccessories: `
-          - Available in sizes ranging from US 6 to 14, including half sizes.
+          - Available in sizes ranging from US 7 to 13, including half sizes.
           - Includes an extra pair of comfort insoles.
           - Shoebox included.`,
         price: 105,
@@ -164,7 +161,7 @@ const createInitialProducts = async () => {
           - Made with quick-dry neoprene upper and rubber outsole for water resistance.
           - Durable construction for longevity.`,
         sizesAccessories: `
-          - Available in sizes ranging from US 6 to 14, including half sizes.
+          - Available in sizes ranging from US 7 to 13, including half sizes.
           - Comes with a mesh carry bag for transportation.
           - Shoebox included.`,
         price: 115,
@@ -181,7 +178,7 @@ const createInitialProducts = async () => {
           - Constructed with waterproof leather upper and synthetic soles.
           - Thermal insulation for extreme cold weather conditions.`,
         sizesAccessories: `
-          - Available in sizes ranging from US 6 to 14, including half sizes.
+          - Available in sizes ranging from US 7 to 13, including half sizes.
           - Includes an extra pair of warm socks.
           - Shoebox included.`,
         price: 140,
@@ -198,7 +195,7 @@ const createInitialProducts = async () => {
           - Constructed with eco-friendly hemp fibers and rubber soles.
           - High-quality stitching for long-term use.`,
         sizesAccessories: `
-          - Available in sizes ranging from US 6 to 14, including half sizes.
+          - Available in sizes ranging from US 7 to 13, including half sizes.
           - Comes with a shoe cleaner kit.
           - Shoebox included.`,
         price: 100,
@@ -215,7 +212,7 @@ const createInitialProducts = async () => {
           - Constructed with high-quality synthetic upper and rubber soles.
           - Engineered for high-speed performance and durability.`,
         sizesAccessories: `
-          - Available in sizes ranging from US 6 to 14, including half sizes.
+          - Available in sizes ranging from US 7 to 13, including half sizes.
           - Comes with an additional set of high-performance shoelaces.
           - Shoebox included.`,
         price: 215,
@@ -232,7 +229,7 @@ const createInitialProducts = async () => {
           - Constructed with durable leather upper and rubber outsoles.
           - Built to withstand challenging outdoor conditions.`,
         sizesAccessories: `
-          - Available in sizes ranging from US 6 to 14, including half sizes.
+          - Available in sizes ranging from US 7 to 13, including half sizes.
           - Comes with an additional set of heavy-duty shoelaces.
           - Shoebox included.`,
         price: 200,
@@ -249,7 +246,7 @@ const createInitialProducts = async () => {
           - Constructed with premium synthetic upper and flexible rubber soles.
           - Designed for performance and durability.`,
         sizesAccessories: `
-          - Available in sizes ranging from US 6 to 14, including half sizes.
+          - Available in sizes ranging from US 7 to 13, including half sizes.
           - Comes with an additional set of colored shoelaces for personal customization.
           - Shoebox included.`,
         price: 120,
@@ -266,7 +263,7 @@ const createInitialProducts = async () => {
           - Constructed with durable leather upper and rubber outsoles.
           - Built to withstand challenging outdoor conditions.`,
         sizesAccessories: `
-          - Available in sizes ranging from US 6 to 14, including half sizes.
+          - Available in sizes ranging from US 7 to 13, including half sizes.
           - Comes with an additional set of heavy-duty shoelaces.
           - Shoebox included.`,
         price: 200,
@@ -283,7 +280,7 @@ const createInitialProducts = async () => {
           - Constructed with premium synthetic upper and flexible rubber soles.
           - Designed for performance and durability.`,
         sizesAccessories: `
-          - Available in sizes ranging from US 6 to 14, including half sizes.
+          - Available in sizes ranging from US 7 to 13, including half sizes.
           - Comes with an additional set of colored shoelaces for personal customization.
           - Shoebox included.`,
         price: 120,
@@ -300,7 +297,7 @@ const createInitialProducts = async () => {
           - Crafted from high-grade synthetic materials.
           - Outsoles are made from durable rubber that provides grip on a variety of surfaces.`,
         sizesAccessories: `
-          - Available in sizes from US 6 to 14, including half sizes.
+          - Available in sizes from US 7 to 13, including half sizes.
           - Extra set of shoelaces included for customization.
           - Comes with a reusable shoebox.`,
         price: 105,
@@ -366,7 +363,7 @@ const createInitialProducts = async () => {
     - Constructed with waterproof leather upper and synthetic soles.
     - Thermal insulation for extreme cold weather conditions.`,
         sizesAccessories: `
-    - Available in sizes ranging from US 6 to 14, including half sizes.
+    - Available in sizes ranging from US 7 to 13, including half sizes.
     - Includes an extra pair of warm socks.
     - Shoebox included.`,
         price: 140,
@@ -383,7 +380,7 @@ const createInitialProducts = async () => {
     - Constructed with eco-friendly hemp fibers and rubber soles.
     - High-quality stitching for long-term use.`,
         sizesAccessories: `
-    - Available in sizes ranging from US 6 to 14, including half sizes.
+    - Available in sizes ranging from US 7 to 13, including half sizes.
     - Comes with a shoe cleaner kit.
     - Shoebox included.`,
         price: 100,
@@ -400,7 +397,7 @@ const createInitialProducts = async () => {
     - Constructed with high-quality synthetic upper and rubber soles.
     - Engineered for high-speed performance and durability.`,
         sizesAccessories: `
-    - Available in sizes ranging from US 6 to 14, including half sizes.
+    - Available in sizes ranging from US 7 to 13, including half sizes.
     - Comes with an additional set of high-performance shoelaces.
     - Shoebox included.`,
         price: 215,
@@ -417,7 +414,7 @@ const createInitialProducts = async () => {
     - Constructed with durable leather upper and rubber outsoles.
     - Built to withstand challenging outdoor conditions.`,
         sizesAccessories: `
-    - Available in sizes ranging from US 6 to 14, including half sizes.
+    - Available in sizes ranging from US 7 to 13, including half sizes.
     - Comes with an additional set of heavy-duty shoelaces.
     - Shoebox included.`,
         price: 200,
@@ -434,7 +431,7 @@ const createInitialProducts = async () => {
     - Constructed with premium synthetic upper and flexible rubber soles.
     - Designed for performance and durability.`,
         sizesAccessories: `
-    - Available in sizes ranging from US 6 to 14, including half sizes.
+    - Available in sizes ranging from US 7 to 13, including half sizes.
     - Comes with an additional set of colored shoelaces for personal customization.
     - Shoebox included.`,
         price: 120,
@@ -451,7 +448,7 @@ const createInitialProducts = async () => {
     - Crafted from high-grade synthetic materials.
     - Outsoles are made from durable rubber that provides grip on a variety of surfaces.`,
         sizesAccessories: `
-    - Available in sizes from US 6 to 14, including half sizes.
+    - Available in sizes from US 7 to 13, including half sizes.
     - Extra set of shoelaces included for customization.
     - Comes with a reusable shoebox.`,
         price: 105,
@@ -469,7 +466,7 @@ const createInitialProducts = async () => {
           - Crafted from high-grade synthetic materials.
           - Outsoles are made from durable rubber that provides grip on a variety of surfaces.`,
         sizesAccessories: `
-          - Available in sizes from US 6 to 14, including half sizes.
+          - Available in sizes from US 7 to 13, including half sizes.
           - Extra set of shoelaces included for customization.
           - Comes with a reusable shoebox.`,
         price: 105,
@@ -486,7 +483,7 @@ const createInitialProducts = async () => {
           - Made from high-performance synthetic materials.
           - Durable rubber outsoles provide superior grip.`,
         sizesAccessories: `
-          - Sizes US 6 to 14 available, including half sizes.
+          - Sizes US 7 to 13 available, including half sizes.
           - Comes with an extra pair of shoelaces.
           - Packed in a sustainable shoebox.`,
         price: 110,
@@ -503,7 +500,7 @@ const createInitialProducts = async () => {
           - Composed of top-grade synthetic materials.
           - Outsoles made from sturdy rubber that ensures long-lasting use.`,
         sizesAccessories: `
-          - Available in sizes US 6 to 14, including half sizes.
+          - Available in sizes US 7 to 13, including half sizes.
           - Additional shoelaces provided for customization.
           - Packaged in a reusable shoebox.`,
         price: 100,
@@ -520,7 +517,7 @@ const createInitialProducts = async () => {
           - Made from high-quality synthetic materials.
           - Durable rubber outsoles for long-lasting use.`,
         sizesAccessories: `
-          - Available in sizes US 6 to 14, including half sizes.
+          - Available in sizes US 7 to 13, including half sizes.
           - Extra pair of shoelaces included for customization.
           - Comes with a reusable shoebox.`,
         price: 100,
@@ -537,7 +534,7 @@ const createInitialProducts = async () => {
           - Made from high-quality synthetic materials.
           - Durable rubber outsoles for excellent traction.`,
         sizesAccessories: `
-          - Sizes US 6 to 14 available, including half sizes.
+          - Sizes US 7 to 13 available, including half sizes.
           - Extra pair of shoelaces included.
           - Comes with a reusable shoebox.`,
         price: 130,
@@ -554,7 +551,7 @@ const createInitialProducts = async () => {
           - Crafted from durable synthetic materials and rugged rubber outsoles.
           - Designed for long-lasting use in various terrains.`,
         sizesAccessories: `
-          - Available in sizes US 6 to 14, including half sizes.
+          - Available in sizes US 7 to 13, including half sizes.
           - Additional shoelaces provided for customization.
           - Reusable shoebox included.`,
         price: 120,
@@ -571,7 +568,7 @@ const createInitialProducts = async () => {
           - Made from high-quality synthetic materials.
           - Durable rubber outsoles for long-lasting use.`,
         sizesAccessories: `
-          - Sizes US 6 to 14 available, including half sizes.
+          - Sizes US 7 to 13 available, including half sizes.
           - Comes with an extra pair of shoelaces.
           - Packed in a sustainable shoebox.`,
         price: 105,
@@ -588,7 +585,7 @@ const createInitialProducts = async () => {
           - Crafted from high-quality synthetic materials.
           - Outsoles made from durable rubber for excellent grip.`,
         sizesAccessories: `
-          - Availablein sizes from US 6 to 14, including half sizes.
+          - Availablein sizes from US 7 to 13, including half sizes.
           - Extra set of shoelaces included for customization.
           - Comes with a reusable shoebox.`,
         price: 115,
@@ -605,7 +602,7 @@ const createInitialProducts = async () => {
           - Made with recycled materials and natural rubber soles.
           - Ethically produced and environmentally friendly.`,
         sizesAccessories: `
-          - Available in sizes ranging from US 6 to 14, including half sizes.
+          - Available in sizes ranging from US 7 to 13, including half sizes.
           - Comes with an additional set of eco-friendly shoelaces.
           - Shoebox made from recycled materials included.`,
         price: 110,
@@ -702,7 +699,7 @@ const createInitialProducts = async () => {
           - Constructed with waterproof leather upper and synthetic soles.
           - Thermal insulation for extreme cold weather conditions.`,
         sizesAccessories: `
-          - Available in sizes ranging from US 6 to 14, including half sizes.
+          - Available in sizes ranging from US 7 to 13, including half sizes.
           - Includes an extra pair of warm socks.
           - Shoebox included.`,
         price: 140,
@@ -719,7 +716,7 @@ const createInitialProducts = async () => {
           - Constructed with eco-friendly hemp fibers and rubber soles.
           - High-quality stitching for long-term use.`,
         sizesAccessories: `
-          - Available in sizes ranging from US 6 to 14, including half sizes.
+          - Available in sizes ranging from US 7 to 13, including half sizes.
           - Comes with a shoe cleaner kit.
           - Shoebox included.`,
         price: 100,
@@ -736,7 +733,7 @@ const createInitialProducts = async () => {
           - Constructed with high-quality synthetic upper and rubber soles.
           - Engineered for high-speed performance and durability.`,
         sizesAccessories: `
-          - Available in sizes ranging from US 6 to 14, including half sizes.
+          - Available in sizes ranging from US 7 to 13, including half sizes.
           - Comes with an additional set of high-performance shoelaces.
           - Shoebox included.`,
         price: 215,
@@ -753,7 +750,7 @@ const createInitialProducts = async () => {
         - Constructed with durable leather upper and rubber outsoles.
         - Built to withstand challenging outdoor conditions.`,
         sizesAccessories: `
-        - Available in sizes ranging from US 6 to 14, including half sizes.
+        - Available in sizes ranging from US 7 to 13, including half sizes.
         - Comes with an additional set of heavy-duty shoelaces.
         - Shoebox included.`,
         price: 200,
@@ -770,7 +767,7 @@ const createInitialProducts = async () => {
         - Constructed with premium synthetic upper and flexible rubber soles.
         - Designed for performance and durability.`,
         sizesAccessories: `
-        - Available in sizes ranging from US 6 to 14, including half sizes.
+        - Available in sizes ranging from US 7 to 13, including half sizes.
         - Comes with an additional set of colored shoelaces for personal customization.
         - Shoebox included.`,
         price: 120,
@@ -787,7 +784,7 @@ const createInitialProducts = async () => {
         - Crafted from high-grade synthetic materials.
         - Outsoles are made from durable rubber that provides grip on a variety of surfaces.`,
         sizesAccessories: `
-        - Available in sizes from US 6 to 14, including half sizes.
+        - Available in sizes from US 7 to 13, including half sizes.
         - Extra set of shoelaces included for customization.
         - Comes with a reusable shoebox.`,
         price: 105,
@@ -853,7 +850,7 @@ const createInitialProducts = async () => {
   - Constructed with waterproof leather upper and synthetic soles.
   - Thermal insulation for extreme cold weather conditions.`,
         sizesAccessories: `
-  - Available in sizes ranging from US 6 to 14, including half sizes.
+  - Available in sizes ranging from US 7 to 13, including half sizes.
   - Includes an extra pair of warm socks.
   - Shoebox included.`,
         price: 140,
@@ -870,7 +867,7 @@ const createInitialProducts = async () => {
   - Constructed with eco-friendly hemp fibers and rubber soles.
   - High-quality stitching for long-term use.`,
         sizesAccessories: `
-  - Available in sizes ranging from US 6 to 14, including half sizes.
+  - Available in sizes ranging from US 7 to 13, including half sizes.
   - Comes with a shoe cleaner kit.
   - Shoebox included.`,
         price: 100,
@@ -887,7 +884,7 @@ const createInitialProducts = async () => {
   - Constructed with high-quality synthetic upper and rubber soles.
   - Engineered for high-speed performance and durability.`,
         sizesAccessories: `
-  - Available in sizes ranging from US 6 to 14, including half sizes.
+  - Available in sizes ranging from US 7 to 13, including half sizes.
   - Comes with an additional set of high-performance shoelaces.
   - Shoebox included.`,
         price: 215,
@@ -904,7 +901,7 @@ const createInitialProducts = async () => {
   - Constructed with durable leather upper and rubber outsoles.
   - Built to withstand challenging outdoor conditions.`,
         sizesAccessories: `
-  - Available in sizes ranging from US 6 to 14, including half sizes.
+  - Available in sizes ranging from US 7 to 13, including half sizes.
   - Comes with an additional set of heavy-duty shoelaces.
   - Shoebox included.`,
         price: 200,
@@ -922,7 +919,7 @@ const createInitialProducts = async () => {
           - Premium leather upper for a luxurious look and durability. 
           - High-quality craftsmanship for long-lasting performance.`,
         sizesAccessories: `
-          - Available in sizes ranging from US 6 to 14, including half sizes. 
+          - Available in sizes ranging from US 7 to 13, including half sizes. 
           - Comes with an additional set of colorful shoelaces for customization. 
           - Shoebox included.`,
         price: 130,
@@ -939,7 +936,7 @@ const createInitialProducts = async () => {
           - Made with durable leather and synthetic upper for high-performance. 
           - Slip-resistant rubber outsole for reliable traction.`,
         sizesAccessories: `
-          - Available in sizes ranging from US 6 to 14, including half sizes.
+          - Available in sizes ranging from US 7 to 13, including half sizes.
           - Includes spare laces in a contrast color.
           - Shoebox included.`,
         price: 120,
@@ -956,7 +953,7 @@ const createInitialProducts = async () => {
           - Constructed with organic cotton upper and natural rubber soles.
           - Ethically produced for sustainable fashion.`,
         sizesAccessories: `
-          - Available in sizes ranging from US 6 to 14, including half sizes.
+          - Available in sizes ranging from US 7 to 13, including half sizes.
           - Comes with additional colored shoelaces for personal customization.
           - Shoebox included.`,
         price: 95,
@@ -973,7 +970,7 @@ const createInitialProducts = async () => {
           - Made with breathable fabric upper for air circulation.
           - High elasticity outsole for diverse movements.`,
         sizesAccessories: `
-          - Available in sizes ranging from US 6 to 14, including half sizes.
+          - Available in sizes ranging from US 7 to 13, including half sizes.
           - Includes an extra pair of comfort insoles.
           - Shoebox included.`,
         price: 105,
@@ -990,7 +987,7 @@ const createInitialProducts = async () => {
           - Made with quick-dry neoprene upper and rubber outsole for water resistance.
           - Durable construction for longevity.`,
         sizesAccessories: `
-          - Available in sizes ranging from US 6 to 14, including half sizes.
+          - Available in sizes ranging from US 7 to 13, including half sizes.
           - Comes with a mesh carry bag for transportation.
           - Shoebox included.`,
         price: 115,
@@ -1007,7 +1004,7 @@ const createInitialProducts = async () => {
           - Constructed with waterproof leather upper and synthetic soles.
           - Thermal insulation for extreme cold weather conditions.`,
         sizesAccessories: `
-          - Available in sizes ranging from US 6 to 14, including half sizes.
+          - Available in sizes ranging from US 7 to 13, including half sizes.
           - Includes an extra pair of warm socks.
           - Shoebox included.`,
         price: 140,
@@ -1024,7 +1021,7 @@ const createInitialProducts = async () => {
           - Constructed with eco-friendly hemp fibers and rubber soles.
           - High-quality stitching for long-term use.`,
         sizesAccessories: `
-          - Available in sizes ranging from US 6 to 14, including half sizes.
+          - Available in sizes ranging from US 7 to 13, including half sizes.
           - Comes with a shoe cleaner kit.
           - Shoebox included.`,
         price: 100,
@@ -1041,7 +1038,7 @@ const createInitialProducts = async () => {
           - Constructed with high-quality synthetic upper and rubber soles.
           - Engineered for high-speed performance and durability.`,
         sizesAccessories: `
-          - Available in sizes ranging from US 6 to 14, including half sizes.
+          - Available in sizes ranging from US 7 to 13, including half sizes.
           - Comes with an additional set of high-performance shoelaces.
           - Shoebox included.`,
         price: 215,
@@ -1058,7 +1055,7 @@ const createInitialProducts = async () => {
           - Constructed with durable leather upper and rubber outsoles.
           - Built to withstand challenging outdoor conditions.`,
         sizesAccessories: `
-          - Available in sizes ranging from US 6 to 14, including half sizes.
+          - Available in sizes ranging from US 7 to 13, including half sizes.
           - Comes with an additional set of heavy-duty shoelaces.
           - Shoebox included.`,
         price: 200,
@@ -1075,7 +1072,7 @@ const createInitialProducts = async () => {
           - Constructed with waterproof leather upper and synthetic soles.
           - Thermal insulation for extreme cold weather conditions.`,
         sizesAccessories: `
-          - Available in sizes ranging from US 6 to 14, including half sizes.
+          - Available in sizes ranging from US 7 to 13, including half sizes.
           - Includes an extra pair of warm socks.
           - Shoebox included.`,
         price: 140,

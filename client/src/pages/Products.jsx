@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
-import {getProducts} from '../api/products';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { getProducts } from '../api/products';
 import '../css/Products.css';
 
 function Products() {
@@ -10,6 +10,7 @@ function Products() {
 
   const location = useLocation();
   const category = location.pathname.split("/")[2]; // Get category from URL
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -33,6 +34,11 @@ function Products() {
   // Change page
   const paginate = pageNumber => setCurrentPage(pageNumber);
 
+  // Navigate to single product
+  const navigateToSingleProduct = (id) => {
+    navigate(`/shoe/${id}`);
+  }
+
   return (
     <div className="products-container">
       {currentProducts.map((product) => (
@@ -40,7 +46,7 @@ function Products() {
           <h3>{product.name}</h3>
           <p>Price: {product.price}</p>
           <img src={product.image_url} alt={product.name} />
-          <button>ADD TO CART</button>
+          <button onClick={() => navigateToSingleProduct(product.id)}>CHECK MORE DETAIL</button>
         </div>
       ))}
       <div className="pagination">
