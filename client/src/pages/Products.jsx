@@ -2,9 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { getProducts } from '../api/products';
 import { addToCart } from '../api/cart';
-import { useNavigate } from 'react-router-dom';
-import { getProducts } from '../api/products';
-import { addToCart } from '../api/cart';
 import '../css/Products.css';
 
 function Products() {
@@ -12,10 +9,8 @@ function Products() {
   const [currentPage, setCurrentPage] = useState(1);
   const [productsPerPage] = useState(9);
   const [userId, setUserId] = useState('');
-  const [userId, setUserId] = useState('');
 
   const location = useLocation();
-  const category = location.pathname.split("/")[2];
   const category = location.pathname.split("/")[2];
 
   useEffect(() => {
@@ -32,11 +27,7 @@ function Products() {
     const storedUserId = localStorage.getItem('userId');
     setUserId(storedUserId);
 
-    const storedUserId = localStorage.getItem('userId');
-    setUserId(storedUserId);
-
     fetchProducts();
-  }, [category]);
   }, [category]);
 
   const indexOfLastProduct = currentPage * productsPerPage;
@@ -44,10 +35,6 @@ function Products() {
   const currentProducts = products.slice(indexOfFirstProduct, indexOfLastProduct);
 
   const paginate = pageNumber => setCurrentPage(pageNumber);
-
-  const handleAddToCart = (productId, quantity) => {
-    addToCart(userId, productId, quantity);
-  };
 
   const handleAddToCart = (productId, quantity) => {
     addToCart(userId, productId, quantity);
@@ -61,11 +48,9 @@ function Products() {
           <p>Price: {product.price}</p>
           <img src={product.image_url} alt={product.name} />
           <button onClick={() => handleAddToCart(product.id, 1)}>ADD TO CART</button>
-          <button onClick={() => handleAddToCart(product.id, 1)}>ADD TO CART</button>
         </div>
       ))}
       <div className="pagination">
-        {[...Array(Math.ceil(products.length / productsPerPage))].map((_, i) => (
         {[...Array(Math.ceil(products.length / productsPerPage))].map((_, i) => (
           <button key={i} onClick={() => paginate(i + 1)}>{i + 1}</button>
         ))}
@@ -75,4 +60,3 @@ function Products() {
 }
 
 export default Products;
-
