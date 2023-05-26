@@ -3,6 +3,8 @@ import { useLocation } from 'react-router-dom';
 import { getProducts } from '../api/products';
 import { addToCart } from '../api/cart';
 import { useNavigate } from 'react-router-dom';
+import { getProducts } from '../api/products';
+import { addToCart } from '../api/cart';
 import '../css/Products.css';
 
 function Products() {
@@ -12,8 +14,7 @@ function Products() {
   const [userId, setUserId] = useState('');
 
   const location = useLocation();
-  const category = location.pathname.split("/")[2]; // Get category from URL
-  const navigate = useNavigate();
+  const category = location.pathname.split("/")[2];
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -38,10 +39,9 @@ function Products() {
 
   const paginate = pageNumber => setCurrentPage(pageNumber);
 
-  // Navigate to single product
-  const navigateToSingleProduct = (id) => {
-    navigate(`/shoe/${id}`);
-  }
+  const handleAddToCart = (productId, quantity) => {
+    addToCart(userId, productId, quantity);
+  };
 
   return (
     <div className="products-container">
@@ -50,7 +50,7 @@ function Products() {
           <h3>{product.name}</h3>
           <p>Price: {product.price}</p>
           <img src={product.image_url} alt={product.name} />
-          <button onClick={() => navigateToSingleProduct(product.id)}>CHECK MORE DETAIL</button>
+          <button onClick={() => handleAddToCart(product.id, 1)}>ADD TO CART</button>
         </div>
       ))}
       <div className="pagination">
