@@ -4,8 +4,8 @@ const client = require('../db/client');
 const router = express.Router();
 
 router.post('/add', async (req, res, next) => {
-    const { user_id, product_id, quantity } = req.body;
-    console.log(user_id, product_id, quantity);
+    const { user_id, product_id, quantity,image_url,price } = req.body;
+    console.log("add route:",user_id, product_id, quantity, image_url,price);
     
     // Check if any of the values are undefined
     if (user_id === undefined || product_id === undefined || quantity === undefined) {
@@ -17,11 +17,11 @@ router.post('/add', async (req, res, next) => {
     try {
       // Save the cart item to the database
       const query = `
-        INSERT INTO carts (user_id, product_id, quantity)
-        VALUES ($1, $2, $3)
+        INSERT INTO carts (user_id, product_id, image_url, quantity,price)
+        VALUES ($1, $2, $3, $4, $5)
         RETURNING id;
       `;
-      const values = [user_id, product_id, quantity];
+      const values = [user_id, product_id,image_url, quantity, price];
       const result = await client.query(query, values);
       const cartItemId = result.rows[0].id;
   

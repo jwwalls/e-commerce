@@ -45,11 +45,18 @@ function Checkout() {
       if (success) {
         // Display a success message or perform any necessary actions
         console.log("Checkout successful");
-        setCartItems([])
+        setCartItems([]);
       }
     } catch (error) {
       console.error(error.message || "Failed to perform checkout");
     }
+  };
+
+  const calculateTotal = () => {
+    return cartItems.reduce(
+      (total, item) => total + item.price * item.quantity,
+      0
+    );
   };
 
   return (
@@ -61,6 +68,8 @@ function Checkout() {
             <li key={item.id}>
               <p>Product ID: {item.product_id}</p>
               <p>Quantity: {item.quantity}</p>
+              <p>Price: {item.price}</p>
+              <img src={item.image_url} alt={`Product ${item.image_url}`} />
               <button onClick={() => handleRemoveItem(item.id)}>X</button>
             </li>
           ))}
@@ -68,7 +77,12 @@ function Checkout() {
       ) : (
         <p>No items in the cart</p>
       )}
-      <button onClick={handleCheckout}>Checkout</button>
+      {cartItems.length > 0 && (
+        <div>
+          <p>Total: {calculateTotal()}</p>
+          <button onClick={handleCheckout}>Checkout</button>
+        </div>
+      )}
     </div>
   );
 }

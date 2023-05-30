@@ -1,9 +1,10 @@
 const BASE_URL = 'http://localhost:8080/api/cart';
 
 // Add an item to the cart
-export async function addToCart(userId, productId, quantity) {
+// Add an item to the cart
+export async function addToCart(userId, productId, quantity, imageUrl, price) {
   try {
-    console.log('Adding item to cart', userId, productId, quantity);
+    console.log('Adding item to cart', userId, productId, quantity,imageUrl,price);
     const response = await fetch(`${BASE_URL}/add`, {
       method: 'POST',
       headers: {
@@ -12,7 +13,9 @@ export async function addToCart(userId, productId, quantity) {
       body: JSON.stringify({
         user_id: userId,
         product_id: productId,
-        quantity,
+        image_url: imageUrl,
+        quantity,      
+        price,
       }),
     });
 
@@ -26,6 +29,7 @@ export async function addToCart(userId, productId, quantity) {
     console.error(error.message || 'Failed to add item to cart');
   }
 }
+
 
 export async function getCartItems(userId) {
   try {

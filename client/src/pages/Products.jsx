@@ -37,23 +37,25 @@ function Products() {
 
   const paginate = pageNumber => setCurrentPage(pageNumber);
 
-  const handleAddToCart = (productId, quantity) => {
-    addToCart(userId, productId, quantity);
+  const handleAddToCart = (productId, quantity, imageUrl, price) => {
+    console.log(productId, quantity,imageUrl,price);
+    addToCart(userId, productId, quantity, imageUrl, price)
+    
   };
 
   return (
     <div className="products-container">
       {currentProducts.map((product) => (
         <div key={product.id} className="product-card">
-        <button className="add-to-cart-button" onClick={() => handleAddToCart(product.id, 1)}>+</button>
-        <h3>{product.name}</h3>
-        <p>Price: {product.price}</p>
-        <img src={product.image_url} alt={product.name} />
-      
-        <button className="more-detail-btn">
-          <Link to={`/products/${product.id}`}>More Detail</Link>
-        </button>
-      </div>
+          <button className="add-to-cart-button" onClick={() => handleAddToCart(product.id, 1, product.image_url, product.price)}>+</button>
+          <h3>{product.name}</h3>
+          <p>Price: {product.price}</p>
+          <img src={product.image_url} alt={product.name} />
+
+          <button className="more-detail-btn">
+            <Link to={`/products/${product.id}`}>More Detail</Link>
+          </button>
+        </div>
       ))}
       <div className="pagination">
         {[...Array(Math.ceil(products.length / productsPerPage))].map((_, i) => (

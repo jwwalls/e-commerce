@@ -38,7 +38,9 @@ const createTables = async () => {
       id SERIAL PRIMARY KEY,
       user_id INT REFERENCES users(id),
       product_id INT REFERENCES products(id),
-      quantity INT
+      image_url VARCHAR(255),
+      quantity INT,
+      price VARCHAR(255)
     );
     `);
         console.log(
