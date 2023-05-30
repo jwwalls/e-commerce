@@ -13,17 +13,25 @@ function SingleProduct() {
   for (let i = 7; i <= 13; i += 0.5) {
     shoeSizes.push(i.toString());
   }
-
   useEffect(() => {
     const fetchProduct = async () => {
       try {
         const product = await getProductById(id);
+        
+        // 打印整个产品对象
+        console.log('Product data:', product);
+  
+        // 分别打印特性字段
+        console.log('shoeFeatures:', product.shoefeatures);
+        console.log('materialQuality:', product.materialquality);
+        console.log('sizesAccessories:', product.sizesaccessories);
+        
         setProduct(product);
       } catch (error) {
         console.error(error.message || 'Failed to retrieve product');
       }
     };
-
+  
     fetchProduct();
   }, [id]);
 
@@ -48,15 +56,14 @@ function SingleProduct() {
         <button onClick={() => addToCart(product, selectedSize)}>Add to Cart</button>
       </div>
       <div className="product-details">
-        <p>Features: {product.shoeFeatures}</p>
-        <p>Material Quality: {product.materialQuality}</p>
-        <p>Sizes and Accessories: {product.sizesAccessories}</p>
-        <p>Price: {product.price}</p>
-      </div>
+  <p>Features: {product.shoefeatures}</p>
+  <p>Material Quality: {product.materialquality}</p>
+  <p>Sizes and Accessories: {product.sizesaccessories}</p>
+  <p>Price: {product.price}</p>
+</div>
     </div>
   );
 }
-
 const addToCart = (product, size) => {
   // ...your code to add the product to the cart...
 };

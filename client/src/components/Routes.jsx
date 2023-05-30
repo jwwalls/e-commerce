@@ -54,6 +54,8 @@ const RRoutes = ({ token, setToken, user, setUser }) => {
 <Route path="/shop/sale" element={<Products category="sale" />} />
 
 <Route path="/cart/:userId" element={<Checkout/>} />
+<Route path="/products/:id" element={<SingleProduct />} />
+
 
         <Route path="/:id" element={<Login />}></Route>
 

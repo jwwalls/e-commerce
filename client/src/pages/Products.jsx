@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { getProducts } from '../api/products';
 import { addToCart } from '../api/cart';
+import { Link } from 'react-router-dom';
 import '../css/Products.css';
 
 function Products() {
@@ -44,11 +45,15 @@ function Products() {
     <div className="products-container">
       {currentProducts.map((product) => (
         <div key={product.id} className="product-card">
-          <h3>{product.name}</h3>
-          <p>Price: {product.price}</p>
-          <img src={product.image_url} alt={product.name} />
-          <button onClick={() => handleAddToCart(product.id, 1)}>ADD TO CART</button>
-        </div>
+        <button className="add-to-cart-button" onClick={() => handleAddToCart(product.id, 1)}>+</button>
+        <h3>{product.name}</h3>
+        <p>Price: {product.price}</p>
+        <img src={product.image_url} alt={product.name} />
+      
+        <button className="more-detail-btn">
+          <Link to={`/products/${product.id}`}>More Detail</Link>
+        </button>
+      </div>
       ))}
       <div className="pagination">
         {[...Array(Math.ceil(products.length / productsPerPage))].map((_, i) => (

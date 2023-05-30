@@ -1,7 +1,7 @@
 const BASE_URL = "http://localhost:8080/api/products";
 
 // Create a new product
-export async function createProduct(name, description, price, category, imagePath) {
+export async function createProduct(name, shoeFeatures, materialQuality, sizesAccessories, price, category, imagePath) {
   try {
     const response = await fetch(BASE_URL, {
       method: "POST",
@@ -10,7 +10,9 @@ export async function createProduct(name, description, price, category, imagePat
       },
       body: JSON.stringify({
         name,
-        description,
+        shoeFeatures,
+        materialQuality,
+        sizesAccessories,
         price,
         category,
         imagePath,
@@ -23,6 +25,7 @@ export async function createProduct(name, description, price, category, imagePat
     console.error(error.message || "Failed to create product");
   }
 }
+
 
 // Get all products
 export async function getProducts() {
@@ -47,7 +50,7 @@ export async function getProductById(id) {
 }
 
 // Update a product
-export async function updateProduct(id, name, description, price, category, imagePath) {
+export async function updateProduct(id, name, shoeFeatures, materialQuality, sizesAccessories, price, category, imagePath) {
   try {
     const response = await fetch(`${BASE_URL}/${id}`, {
       method: "PUT",
@@ -56,7 +59,9 @@ export async function updateProduct(id, name, description, price, category, imag
       },
       body: JSON.stringify({
         name,
-        description,
+        shoeFeatures,
+        materialQuality,
+        sizesAccessories,
         price,
         category,
         imagePath,
