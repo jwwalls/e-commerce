@@ -1,25 +1,27 @@
+// NavBar.js
 import React, { useState, useEffect } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import '../App.css';
 import '../css/NavBar.css';
 
-const NavBar = () => {
+const NavBar = ({ user }) => {
   const [userId, setUserId] = useState('');
-  const [username, setUsername] = useState('');
+  const [showLoginMessage, setShowLoginMessage] = useState(false);
 
   useEffect(() => {
     const storedUserId = localStorage.getItem('userId');
 
-    if (storedUserId ) {
+    if (storedUserId) {
       setUserId(storedUserId);
-   
     }
   }, [userId]);
 
   const handleCartClick = () => {
-    const storedUserId = localStorage.getItem('userId');
-    if (storedUserId) {
+    if (userId) {
+      const storedUserId = localStorage.getItem('userId');
       setUserId(storedUserId);
+    } else {
+      setUserId('1');
     }
   };
 
@@ -39,15 +41,20 @@ const NavBar = () => {
           <NavLink to="/shop/sale">SALE</NavLink>
         </li>
         <li className="nav-item">
-          <Link to={`/cart/${userId}`} onClick={handleCartClick}>CHECKOUT</Link>
+          {showLoginMessage ? (
+            <span>Please login</span>
+          ) : (
+            <Link to={`/cart/${userId}`} onClick={handleCartClick}>
+              CHECKOUT
+            </Link>
+          )}
         </li>
         <li className="nav-item">
-          {userId ? (
-             <NavLink to="/login">{userId}</NavLink>
+          {user ? (
+            <NavLink to="/login">{user.username}</NavLink>
           ) : (
             <NavLink to="/login">LOGIN</NavLink>
           )}
-          
         </li>
       </ul>
     </nav>
