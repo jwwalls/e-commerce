@@ -47,12 +47,21 @@ function User({ setToken }) {
   };
 
   return (
-    <div className="User">
-      <input type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
-      <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
-      <button onClick={register}>Register</button>
-      <button onClick={login}>Login</button>
+<div className="User">
+  <div className="card">
+    <h1>Sign in</h1>
+    <div className="input-group">
+      <label htmlFor="username">Username</label>
+      <input id="username" type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
     </div>
+    <div className="input-group">
+      <label htmlFor="password">Password</label>
+      <input id="password" type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+    </div>
+    <button onClick={register}>Register</button>
+    <button onClick={login}>Login</button>
+  </div>
+</div>
   );
 };
 

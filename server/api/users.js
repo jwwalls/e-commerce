@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { createUser, getUser, getUserById, getUserByUsername } = require('../db/users');
-
+const jwt = require('jsonwebtoken');
 // POST: api/users
 router.post('/', async (req, res, next) => {
   const { username, password } = req.body;
@@ -12,17 +12,22 @@ router.post('/', async (req, res, next) => {
   }
 });
 
-// POST: api/users/login
 router.post('/login', async (req, res, next) => {
   const { username, password } = req.body;
   try {
+    console.log("Trying to get user from DB...");
     const user = await getUser(username, password);
+    console.log("User retrieved from DB: ", user);
     if (!user) {
+      console.log("User not found or password incorrect");
       return res.status(401).json({ message: 'Invalid username or password' });
     }
+    console.log("User found, trying to sign JWT token...");
     const token = jwt.sign({ userId: user.id }, 'your-secret-key');
+    console.log("Token signed: ", token);
     res.json({ user, token });
   } catch (error) {
+    console.error("An error occurred: ", error);
     next(error);
   }
 });

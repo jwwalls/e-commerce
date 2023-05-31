@@ -14,6 +14,10 @@ async function createUser(username, password) {
     const values = [username, hashedPassword];
     const result = await client.query(query, values);
     
+    if (result.rows.length === 0) {
+      throw new Error('User was not created');
+    }
+    
     const user = result.rows[0];
     
     // Generate JWT token
@@ -25,10 +29,9 @@ async function createUser(username, password) {
     throw error;
   }
 }
-
-
 async function getUser(username, password) {
   try {
+    console.log("Querying DB for user...");
     const query = `
       SELECT *
       FROM users
@@ -36,14 +39,21 @@ async function getUser(username, password) {
     `;
     const values = [username];
     const result = await client.query(query, values);
+    console.log("DB Query Result: ", result.rows);
     if (result.rows.length === 0) {
+      console.log("User not found in DB.");
       return null; // User not found
     }
     const user = result.rows[0];
+    console.log("Comparing password with hashed password...");
     const passwordMatch = await bcrypt.compare(password, user.password);
+    console.log("Password comparison result: ", passwordMatch);
     if (!passwordMatch) {
+      console.log("Password doesn't match.");
       return null; // Incorrect password
     }
+    // Do not return password
+    delete user.password;
     return user;
   } catch (error) {
     console.error('Error getting user', error);
