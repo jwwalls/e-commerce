@@ -1,17 +1,32 @@
 import React, { useState } from 'react';
+import { createProduct } from '../api/products';
+import '../css/Update.css'
 
 const CreatePost = ({ token, onClose }) => {
-  const [image, setImage] = useState(null);//image not called yet
-  const navigate = useNavigate();
-  const [name, setName] = useState("");
-  const [price, setPrice ] = useState("");
-  const [category, setCategory ] = useState("");
-  const [sizes, setSizes] = useState([]);
-  const [isPublic, setIsPublic] = useState(null);
+  const [name, setName] = useState('');
+  const [shoeFeatures, setShoeFeatures] = useState('');
+  const [materialQuality, setMaterialQuality] = useState('');
+  const [accessories, setAccessories] = useState('');
+  const [sizes, setSizes] = useState('');
+  const [price, setPrice] = useState('');
+  const [category, setCategory] = useState('');
+  const [imagePath, setImagePath] = useState('');
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const productId = await createProduct(name, shoeFeatures, materialQuality, sizes, accessories, price, category, imagePath, token);
+      onClose();
+      console.log('Product created with ID:', productId);
+    } catch (error) {
+      console.error('Failed to create product:', error.message);
+    }
+  };
+
+  
   const handleImageUpload = (event) => {
     const file = event.target.files[0];
-    setImage(file);
+    setImagePath(URL.createObjectURL(file));
   };
 
   const handleSizesChange = (event) => {
@@ -20,40 +35,36 @@ const CreatePost = ({ token, onClose }) => {
     setSizes(filteredSizes);
   };
 
+//................................................................
+
 return (
-  <div className="update-post">
-    <div className="updateHeader">
-      <h2>Add Shoe</h2>
-      <div className="close-button" onClick={onClose}>
-        X
-      </div>
-    </div>
-    <form className='updateForm'
-      onSubmit={async (e) => {
-        e.preventDefault();
-        await createRoutine(token, name, goal, isPublic);
-        onClose(false);
-        navigate("/routines");
-      }}
-    >
+  
+  <form className='updateForm' onSubmit={handleSubmit}>
+    <label>
+      Name:
+      <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
+    </label>
+    <br />
+    <label>
+      Shoe Features:
+      <input type="text" value={shoeFeatures} onChange={(e) => setShoeFeatures(e.target.value)} />
+    </label>
+    <br />
 
-      <input 
-      type="file"
-      accept="image/*"
-      onChange={handleImageUpload} 
-      required
-      />
+    <label>
+      Material Quality:
+      <input type="text" value={materialQuality} onChange={(e) => setMaterialQuality(e.target.value)} />
+    </label>
+    <br />
 
-      <label>Shoe Name:</label>
-      <input
-        type="text"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-        placeholder="Name"
-        required
-      />
-        <label>Shoe Size:</label>
-        <select
+    <label>
+    Accessories:
+      <input type="text" value={accessories} onChange={(e) => setAccessories(e.target.value)} />
+    </label>
+    <br />
+
+   <label>Shoe Size:</label>
+         <select
           className="updateDescription"
           value={sizes}
           onChange={handleSizesChange}
@@ -72,20 +83,22 @@ return (
           <option value="13">13</option>
           <option value="14">14</option>
         </select>
+    <br />
 
-        <label>Price:</label>
-        <div>
-          $
-          <input
-            type="number"
+    <label>Price:</label>
+         <div>
+           $
+           <input
+             type="number"
             value={price}
             onChange={(e) => setPrice(e.target.value)}
             placeholder="Price"
             required
           />
           </div>
+    <br />
 
-        <label>Category:</label>
+    <label>Category:</label>
         <select
           value={category}
           onChange={(e) => setCategory(e.target.value)}
@@ -94,25 +107,44 @@ return (
           <option value="">Select category</option>
           <option value="man">Man</option>
           <option value="women">Women</option>
-          <option value="child">Child</option>
-          <option value="casual">Casual</option>
-          <option value="sports">Sports</option>
-          <option value="winter">Winter</option>
         </select>
+    <br />
 
-      <label>
-        Public:
-        <input
-          type="checkbox"
-          checked={isPublic}
-          onChange={(e) => setIsPublic(e.target.checked)}
-        />
-      </label>
-
-      <button type="submit">Create Post</button>
-    </form>
-  </div>
+    <label>
+      Image Path:
+      <input type="file" accept="image/*" onChange={handleImageUpload} />
+    </label>
+    <br />
+    
+    <button type="submit">Create Post</button>
+  </form>
 );
-};
+}
 
-export default CreatePost
+export async function CreatePost(name, shoeFeatures, materialQuality, sizesAccessories, price, category, imagePath, token) {
+  try {
+    const response = await fetch(BASE_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        name,
+        shoeFeatures,
+        materialQuality,
+        sizes,
+        accessories,
+        price,
+        category,
+        imagePath,
+      }),
+    });
+
+    const data = await response.json();
+    return data.productId;
+  } catch (error) {
+    console.error(error.message || "Failed to create product");
+    throw error;
+  }
+}
