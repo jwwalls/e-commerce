@@ -18,10 +18,10 @@ function SingleProduct() {
       try {
         const product = await getProductById(id);
         
-        // 打印整个产品对象
+
         console.log('Product data:', product);
   
-        // 分别打印特性字段
+  
         console.log('shoeFeatures:', product.shoefeatures);
         console.log('materialQuality:', product.materialquality);
         console.log('sizesAccessories:', product.sizesaccessories);
@@ -46,14 +46,13 @@ function SingleProduct() {
     <div className="single-product-page">
     <div className="single-product-container">
       <div className="product-image-container">
-        <img className="product-image" src={product.image_url} alt={product.name} />
+        <img className="product-image2" src={product.image_url} alt={product.name} />
         <label htmlFor="size-selector">Size:</label>
         <select className="size-selector" id="size-selector" value={selectedSize} onChange={handleSizeChange}>
           {shoeSizes.map((size, index) => (
             <option key={index} value={size}>{size}</option>
           ))}
         </select>
-        <button className="cart-button" onClick={() => addToCart(product, selectedSize)}>Add to Cart</button>
       </div>
       <div className="product-details-container">
         <h1 className="product-name">{product.name}</h1>
@@ -61,6 +60,7 @@ function SingleProduct() {
         <p className="product-quality">Material Quality: {product.materialquality}</p>
         <p className="product-sizes">Sizes and Accessories: {product.sizesaccessories}</p>
         <p className="product-price">Price: {product.price}</p>
+        <button className="cart-button" onClick={() => addToCart(product, selectedSize)}>Add to Cart</button>
       </div>
     </div>
     </div>

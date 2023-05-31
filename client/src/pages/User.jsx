@@ -11,13 +11,13 @@ function User({ setToken }) {
   const register = async () => {
     try {
       const data = await createUser(username, password);
-      console.log(data);
       if (data && data.token) {
         localStorage.setItem('token', data.token);
         localStorage.setItem('userId', data.user.id);
         setToken(data.token);
         setUsername('');
         setPassword('');
+        alert("Register Success!");
       } else {
         console.error('Failed to create user');
       }
@@ -25,11 +25,11 @@ function User({ setToken }) {
       console.error(err);
     }
   };
-
+  
   const login = async () => {
     try {
       const data = await loginUser(username, password);
-
+  
       if (data && data.token) {
         localStorage.setItem('token', data.token);
         localStorage.setItem('userId', data.user.id);
@@ -37,6 +37,7 @@ function User({ setToken }) {
         setUsername('');
         setPassword('');
         navigate('/myRoutines');
+        alert("Login Success! Welcome to SHOENSTAR!");
       } else {
         console.error('Invalid username or password');
       }

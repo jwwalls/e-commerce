@@ -22,10 +22,10 @@
   width: 50%;
 }
 
-.product-image {
+.product-image2 {
   width: 100%;
-  height: auto; /* Allow the image to scale its height automatically */
-  object-fit: cover;
+  height: 400px; 
+  object-fit: contain; 
 }
 
 .size-selector {
