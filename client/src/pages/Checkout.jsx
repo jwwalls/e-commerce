@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getCartItems, removeFromCart, checkout } from "../api/cart";
+import '../css/Checkout.css';
 
 function Checkout() {
   const [cartItems, setCartItems] = useState([]);
@@ -60,27 +61,27 @@ function Checkout() {
   };
 
   return (
-    <div>
-      <h1>Welcome to Checkout</h1>
+    <div className="checkout-container">
+      <h1 className="checkout-title">Welcome to Checkout</h1>
       {cartItems.length > 0 ? (
-        <ul>
+        <ul className="checkout-list">
           {cartItems.map((item) => (
-            <li key={item.id}>
-              <p>Product ID: {item.product_id}</p>
-              <p>Quantity: {item.quantity}</p>
-              <p>Price: {item.price}</p>
-              <img src={item.image_url} alt={`Product ${item.image_url}`} />
-              <button onClick={() => handleRemoveItem(item.id)}>X</button>
+            <li key={item.id} className="checkout-item">
+              <p className="checkout-product-id">Product ID: {item.product_id}</p>
+              <p className="checkout-quantity">Quantity: {item.quantity}</p>
+              <p className="checkout-price">Price: {item.price}</p>
+              <img src={item.image_url} alt={`Product ${item.image_url}`} className="checkout-image"/>
+              <button onClick={() => handleRemoveItem(item.id)} className="checkout-remove-btn">X</button>
             </li>
           ))}
         </ul>
       ) : (
-        <p>No items in the cart</p>
+        <p className="checkout-empty">No items in the cart</p>
       )}
       {cartItems.length > 0 && (
-        <div>
-          <p>Total: {calculateTotal()}</p>
-          <button onClick={handleCheckout}>Checkout</button>
+        <div className="checkout-summary">
+          <p className="checkout-total">Total: {calculateTotal()}</p>
+          <button onClick={handleCheckout} className="checkout-button">Checkout</button>
         </div>
       )}
     </div>

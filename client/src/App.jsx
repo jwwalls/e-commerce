@@ -12,6 +12,7 @@ function App() {
   return (
     <Router>
       <div className="App">
+        <div className='logo'>SHOE<span>N</span>STAR</div>
         <Navbar />
         <RRoutes token={token} setToken={setToken} user={user} setUser={setUser} />
         <Footer />

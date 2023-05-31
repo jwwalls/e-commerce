@@ -10,6 +10,9 @@ function Products() {
   const [currentPage, setCurrentPage] = useState(1);
   const [productsPerPage] = useState(9);
   const [userId, setUserId] = useState('');
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [previousImageIndex, setPreviousImageIndex] = useState(null);
+  const images = ["homepic.png", "homepic2.png", "homepic3.png", "homepic4.png"];
 
   const location = useLocation();
   const category = location.pathname.split("/")[2];
@@ -31,6 +34,15 @@ function Products() {
     fetchProducts();
   }, [category]);
 
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setPreviousImageIndex(currentImageIndex);
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 8000);
+
+    return () => clearInterval(timer);
+  }, [currentImageIndex]);
+
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
   const currentProducts = products.slice(indexOfFirstProduct, indexOfLastProduct);
@@ -44,25 +56,36 @@ function Products() {
   };
 
   return (
-    <div className="products-container">
-      {currentProducts.map((product) => (
-        <div key={product.id} className="product-card">
-          <button className="add-to-cart-button" onClick={() => handleAddToCart(product.id, 1, product.image_url, product.price)}>+</button>
-          <h3>{product.name}</h3>
-          <p>Price: {product.price}</p>
-          <img src={product.image_url} alt={product.name} />
-
-          <button className="more-detail-btn">
-            <Link to={`/products/${product.id}`}>More Detail</Link>
-          </button>
-        </div>
-      ))}
-      <div className="pagination">
-        {[...Array(Math.ceil(products.length / productsPerPage))].map((_, i) => (
-          <button key={i} onClick={() => paginate(i + 1)}>{i + 1}</button>
+    
+  
+    <><div className='header'>
+      <div className='header-image-container'>
+        {images.map((image, index) => (
+          <img
+            className={`header-image ${index === currentImageIndex ? "show" : ""}`}
+            src={`/pics/${image}`}
+            alt="homepic"
+            key={index}
+            style={index === previousImageIndex ? { opacity: 0 } : {}} />
         ))}
       </div>
+    </div><div className="products-container">
+  {currentProducts.map((product) => (
+    <div key={product.id} className="product-card" onClick={() => handleProductClick(product.id)}>
+      <div className="price-badge">${product.price}</div>
+      <button className="add-to-cart-button" onClick={(e) => handleAddToCart(e, product.id, 1, product.image_url, product.price)}>ADD TO CART </button>
+      <img src={product.image_url} alt={product.name} />
+      <div className="product-details">
+      <h3 className="product-name">{product.name}</h3>
+      </div>
     </div>
+  ))}
+    </div>
+    <div className="pagination">
+          {[...Array(Math.ceil(products.length / productsPerPage))].map((_, i) => (
+            <button key={i} onClick={() => paginate(i + 1)}>{i + 1}</button>
+          ))}
+        </div></>
   );
 }
 

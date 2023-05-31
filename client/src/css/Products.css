@@ -2,65 +2,83 @@ div.products-container {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  position: relative;
-  margin: 0 auto;
-  padding: 20px 20px 80px 20px; /* Increased bottom padding to make room for the pagination */
-}
-
-/* style each product */
-div.product-card {
-  flex-basis: 30%;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  transition: 0.3s;
-  width: 30%;
-  margin-bottom: 20px;
   padding: 20px;
+  width: 90%;
+  margin: auto;
+  gap: 20px; /* Create even space around items */
+}
+
+div.product-card {
+  flex-basis: calc(33.33% - 100px); /* Adjust to allow three cards per row */
+  box-sizing: border-box;
+  background-color: #2e2d2d;
+  border: 1px solid #FFFFFF;
   border-radius: 5px;
-  background-color: #fff;
-  position: relative; /* Added this to allow absolute positioning inside the card */
-  display: flex; /* Added this to create a flex context for the contents */
-  flex-direction: column; /* Added this to align the contents vertically */
+  color: #FFFFFF;
+  margin-bottom: 40px;
+  position: relative;
+  padding: 20px;
+  height: 500px; /* You might want to adjust this depending on your design */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease;
 }
 
-/* On mouse-over, add a deeper shadow */
 div.product-card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  transform: scale(1.02);
+}
+div.product-card .product-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
-/* style the product image */
+div.product-card h3.product-name { /* Updated selector */
+  color: #FFFFFF;
+  font-size: 36px;
+
+}
+
+div.product-card .add-to-cart-button {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  color: rgb(200, 77, 0);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  transition: color 0.3s ease; /* Add transition for hover effect */
+}
+
+div.product-card .add-to-cart-button:hover {
+  color: #ff944d; /* Change color on hover */
+}
+
 div.product-card img {
   width: 100%;
   height: 200px;
   object-fit: contain;
+  margin-top: 70px;
 }
 
-/* style the Add to Cart button */
-div.product-card .add-to-cart-button {
-  position: absolute; /* This allows the button to be positioned relative to the card */
-  top: 20px; /* Position from the top of the card */
-  right: 20px; /* Position from the right of the card */
-  /* Now style the button to look like a plus */
-  width: 40px;
-  height: 40px;
-  border-radius: 50%; /* Make it circular */
-  background-color: #007BFF;
-  color: #fff;
-  border: none;
-  font-size: 24px; /* Make the plus sign larger */
-  cursor: pointer;
+div.product-card .price-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #FFFFFF;
+  font-size: 18px;
+  background-color: rgba(0, 0, 0, 0.6); /* Add some background for better readability */
+  padding: 5px 10px; /* Add some padding for better aesthetics */
+  border-radius: 5px; /* Round the corners */
 }
 
-div.product-card .add-to-cart-button:hover {
-  background-color: #0056b3;
-}
-
-/* style the More Detail button */
 div.product-card .more-detail-btn {
   width: 100%;
-  margin-top: auto; /* This pushes the button to the bottom of the card */
   padding: 10px;
-  color: rgb(156, 153, 153);
-  background-color: #007BFF;
+  color: #FFFFFF;
+  background-color: #000000;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -68,31 +86,60 @@ div.product-card .more-detail-btn {
 }
 
 div.product-card .more-detail-btn:hover {
-  background-color: #0056b3;
+  background-color: #333333;
 }
 
-div.pagination {
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
+.home {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  background-color: black; 
+  color: white;
+}
+
+.header {
+  position: relative;
+  width: 100%;
+  height: 100vh; 
+  overflow: hidden;
+}
+
+.header-image-container {
+  position: relative;
+  width: 100%;
+  height: 120%;
+}
+
+.header-image {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+div.pagination {
+  position: relative;  /* changed from relative to absolute */
+  right: 20px;
+  bottom: 20px;  /* new line to set position at bottom */
+  display: flex;
+  justify-content: flex-end;  /* changed from center to flex-end */
+  align-items: center;
+  gap: 10px;
 }
 
 div.pagination button {
-  margin: 0 10px;
-  padding: 10px 20px;
-  background-color: #007BFF;
-  color: #fff;
+  background-color: #ffffff;
+  color: #000000;
   border: none;
-  border-radius: 3px; /* Smaller border radius for a more 'rectangular' look */
-  font-size: 16px;
-  line-height: 1;
+  padding: 10px 20px;
+  font-size: 18px;
   cursor: pointer;
+  border-radius: 5px;
   transition: background-color 0.3s ease;
 }
 
 div.pagination button:hover {
-  background-color: #0056b3;
+  background-color: #808080;
+  color: #ffffff;
 }
