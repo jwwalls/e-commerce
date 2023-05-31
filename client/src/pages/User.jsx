@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { createUser, loginUser } from '../api/users';
 import '../css/Users.css';
 
-function User({ setToken }) {
+function User({ setToken, setUser }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
@@ -15,9 +15,10 @@ function User({ setToken }) {
         localStorage.setItem('token', data.token);
         localStorage.setItem('userId', data.user.id);
         setToken(data.token);
+        setUser(data.user); // Set the user state
         setUsername('');
         setPassword('');
-        alert("Register Success!");
+        alert('Register Success!');
       } else {
         console.error('Failed to create user');
       }
@@ -25,25 +26,33 @@ function User({ setToken }) {
       console.error(err);
     }
   };
-  
+
   const login = async () => {
     try {
       const data = await loginUser(username, password);
-  
+      console.log(data);
       if (data && data.token) {
         localStorage.setItem('token', data.token);
         localStorage.setItem('userId', data.user.id);
         setToken(data.token);
+        setUser(data.user); // Set the user state
         setUsername('');
         setPassword('');
-        navigate('/myRoutines');
-        alert("Login Success! Welcome to SHOENSTAR!");
+
+        alert('Login Success! Welcome to SHOENSTAR!');
       } else {
         console.error('Invalid username or password');
       }
     } catch (err) {
       console.error(err);
     }
+  };
+
+  const logout = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('userId');
+    setToken('');
+    setUser(null);
   };
 
   return (
@@ -60,9 +69,10 @@ function User({ setToken }) {
     </div>
     <button onClick={register}>Register</button>
     <button onClick={login}>Login</button>
+    <button onClick={logout}>Logout</button>
   </div>
 </div>
   );
-};
+}
 
 export default User;

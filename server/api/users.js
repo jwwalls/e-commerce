@@ -6,7 +6,7 @@ router.post('/', async (req, res, next) => {
   const { username, password } = req.body;
   try {
     const { user, token } = await createUser(username, password);
-    res.json({ user, token });
+    res.send({ user, token });
   } catch (error) {
     next(error);
   }
@@ -14,6 +14,7 @@ router.post('/', async (req, res, next) => {
 
 router.post('/login', async (req, res, next) => {
   const { username, password } = req.body;
+  console.log('logging in user', username, password);
   try {
     console.log("Trying to get user from DB...");
     const user = await getUser(username, password);

@@ -5,13 +5,23 @@ import '../css/NavBar.css';
 
 const NavBar = () => {
   const [userId, setUserId] = useState('');
+  const [username, setUsername] = useState('');
 
   useEffect(() => {
+    const storedUserId = localStorage.getItem('userId');
+
+    if (storedUserId ) {
+      setUserId(storedUserId);
+   
+    }
+  }, [userId]);
+
+  const handleCartClick = () => {
     const storedUserId = localStorage.getItem('userId');
     if (storedUserId) {
       setUserId(storedUserId);
     }
-  }, []);
+  };
 
   return (
     <nav className="navbar">
@@ -29,10 +39,15 @@ const NavBar = () => {
           <NavLink to="/shop/sale">SALE</NavLink>
         </li>
         <li className="nav-item">
-          <Link to={`/cart/${userId}`}>CHECKOUT</Link>
+          <Link to={`/cart/${userId}`} onClick={handleCartClick}>CHECKOUT</Link>
         </li>
         <li className="nav-item">
-          <NavLink to="/login">LOGIN</NavLink>
+          {userId ? (
+             <NavLink to="/login">{userId}</NavLink>
+          ) : (
+            <NavLink to="/login">LOGIN</NavLink>
+          )}
+          
         </li>
       </ul>
     </nav>

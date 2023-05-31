@@ -4,6 +4,7 @@
     align-items: center;
     background-color: black; 
     color: white;
+    scroll-snap-align: center;
 }
 
 .header {
@@ -125,4 +126,5 @@
     letter-spacing: 2px;
     margin-top: 150px;
     margin-bottom: -150px;
+    scroll-snap-align: center;
 }

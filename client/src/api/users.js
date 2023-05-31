@@ -2,6 +2,7 @@ const BASE_URL = 'http://localhost:8080/api/users';
 
 // Create a new user
 export async function createUser(username, password) {
+  console.log('Creating user', username, password);
   try {
     const response = await fetch(BASE_URL, {
       method: 'POST',
@@ -25,6 +26,7 @@ export async function createUser(username, password) {
 
 // User login
 export async function loginUser(username, password) {
+  console.log('loggins', username, password);
   try {
     const response = await fetch(`${BASE_URL}/login`, {
       method: 'POST',
