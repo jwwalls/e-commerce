@@ -43,24 +43,26 @@ function SingleProduct() {
   if (!product) return null;
 
   return (
-    <div className="single-product">
-      <div className="product-image">
-        <h1>{product.name}</h1>
-        <img src={product.image_url} alt={product.name} />
+    <div className="single-product-page">
+    <div className="single-product-container">
+      <div className="product-image-container">
+        <img className="product-image" src={product.image_url} alt={product.name} />
         <label htmlFor="size-selector">Size:</label>
-        <select id="size-selector" value={selectedSize} onChange={handleSizeChange}>
+        <select className="size-selector" id="size-selector" value={selectedSize} onChange={handleSizeChange}>
           {shoeSizes.map((size, index) => (
             <option key={index} value={size}>{size}</option>
           ))}
         </select>
-        <button onClick={() => addToCart(product, selectedSize)}>Add to Cart</button>
+        <button className="cart-button" onClick={() => addToCart(product, selectedSize)}>Add to Cart</button>
       </div>
-      <div className="product-details">
-  <p>Features: {product.shoefeatures}</p>
-  <p>Material Quality: {product.materialquality}</p>
-  <p>Sizes and Accessories: {product.sizesaccessories}</p>
-  <p>Price: {product.price}</p>
-</div>
+      <div className="product-details-container">
+        <h1 className="product-name">{product.name}</h1>
+        <p className="product-feature">Features: {product.shoefeatures}</p>
+        <p className="product-quality">Material Quality: {product.materialquality}</p>
+        <p className="product-sizes">Sizes and Accessories: {product.sizesaccessories}</p>
+        <p className="product-price">Price: {product.price}</p>
+      </div>
+    </div>
     </div>
   );
 }

@@ -19,7 +19,7 @@ const RRoutes = ({ token, setToken, user, setUser }) => {
   return (
     <div className="body">
       <Routes>
-        <Route path="/" element={<Home />}></Route>
+        <Route path="/" element={<Home />} />
 
         <Route
           path="/login"
@@ -31,11 +31,9 @@ const RRoutes = ({ token, setToken, user, setUser }) => {
               setUser={setUser}
             />
           }
-        ></Route>
+        />
 
-        <Route path="/post-shoe" element={<CreatePost />}></Route>
-
-        <Route path="/shoe:id" element={<SingleProduct />}></Route>
+        <Route path="/post-shoe" element={<CreatePost />} />
 
         <Route
           path="/my-shoes"
@@ -47,28 +45,26 @@ const RRoutes = ({ token, setToken, user, setUser }) => {
               setUser={setUser}
             />
           }
-        ></Route>
+        />
 
         <Route path="/shop/men" element={<Products category="men" />} />
-<Route path="/shop/women" element={<Products category="women" />} />
-<Route path="/shop/sale" element={<Products category="sale" />} />
+        <Route path="/shop/women" element={<Products category="women" />} />
+        <Route path="/shop/sale" element={<Products category="sale" />} />
 
-<Route path="/cart/:userId" element={<Checkout/>} />
-<Route path="/products/:id" element={<SingleProduct />} />
+        <Route path="/cart/:userId" element={<Checkout/>} />
+        <Route path="/product/:id" element={<SingleProduct />} />
 
+        <Route path="/:id" element={<Login />} />
 
-        <Route path="/:id" element={<Login />}></Route>
+        <Route path="/nav-bar" element={<NavBar />} />
 
-        <Route path="/nav-bar" element={<NavBar />}></Route>
+        <Route path="/footer" element={<Footer />} />
 
-        <Route path="/footer" element={<Footer />}></Route>
+        <Route path="/post-edit" element={<EditPost />} />
 
-        <Route path="/post-edit" element={<EditPost />}></Route>
+        <Route path="/post-delete" element={<DeletePost />} />
 
-        <Route path="/post-delete" element={<DeletePost />}></Route>
-
-        <Route path="/cart-edit" element={<EditCart />}></Route>
-        <Route path="/shoe/:id" element={<SingleProduct />} />
+        <Route path="/cart-edit" element={<EditCart />} />
       </Routes>
     </div>
   );

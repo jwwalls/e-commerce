@@ -30,7 +30,6 @@ function Checkout() {
     try {
       const success = await removeFromCart(cartId);
       if (success) {
-        // Remove the item from the cartItems state
         setCartItems((prevItems) =>
           prevItems.filter((item) => item.id !== cartId)
         );
@@ -44,7 +43,6 @@ function Checkout() {
     try {
       const success = await checkout(userId);
       if (success) {
-        // Display a success message or perform any necessary actions
         console.log("Checkout successful");
         setCartItems([]);
       }
