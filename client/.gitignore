@@ -1,4 +1,4 @@
-# Logs
+
 logs
 *.log
 npm-debug.log*
@@ -10,7 +10,6 @@ lerna-debug.log*
 node_modules
 *.local
 
-# Editor directories and files
 .vscode/*
 !.vscode/extensions.json
 .idea

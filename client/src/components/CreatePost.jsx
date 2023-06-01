@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 const CreatePost = ({ token, onClose }) => {
-  const [image, setImage] = useState(null);//image not called yet
+  const [image, setImage] = useState(null);
   const navigate = useNavigate();
   const [name, setName] = useState("");
   const [price, setPrice ] = useState("");

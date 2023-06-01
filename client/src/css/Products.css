@@ -1,3 +1,30 @@
+.custom-header-container {
+  position: relative;
+  width: 100%;
+  height: 300px; 
+  overflow: hidden;
+}
+
+.custom-header-image-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.custom-header-image-container.show {
+  transform: translateX(-100%);
+}
+
+.custom-header-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 div.products-container {
   display: flex;
   justify-content: space-around;
@@ -5,11 +32,11 @@ div.products-container {
   padding: 20px;
   width: 90%;
   margin: auto;
-  gap: 20px; /* Create even space around items */
+  gap: 20px; 
 }
 
 div.product-card {
-  flex-basis: calc(33.33% - 100px); /* Adjust to allow three cards per row */
+  flex-basis: calc(33.33% - 100px); 
   box-sizing: border-box;
   background-color: #2e2d2d;
   border: 1px solid #FFFFFF;
@@ -18,7 +45,7 @@ div.product-card {
   margin-bottom: 40px;
   position: relative;
   padding: 20px;
-  height: 500px; /* You might want to adjust this depending on your design */
+  height: 500px; 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -28,16 +55,16 @@ div.product-card {
 div.product-card:hover {
   transform: scale(1.02);
 }
+
 div.product-card .product-info {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
 }
 
-div.product-card h3.product-name { /* Updated selector */
+div.product-card h3.product-name { 
   color: #FFFFFF;
   font-size: 36px;
-
 }
 
 div.product-card .add-to-cart-button {
@@ -49,11 +76,11 @@ div.product-card .add-to-cart-button {
   border: none;
   cursor: pointer;
   font-size: 15px;
-  transition: color 0.3s ease; /* Add transition for hover effect */
+  transition: color 0.3s ease; 
 }
 
 div.product-card .add-to-cart-button:hover {
-  color: #ff944d; /* Change color on hover */
+  color: #ff944d; 
 }
 
 div.product-card img {
@@ -69,9 +96,9 @@ div.product-card .price-badge {
   right: 10px;
   color: #FFFFFF;
   font-size: 18px;
-  background-color: rgba(0, 0, 0, 0.6); /* Add some background for better readability */
-  padding: 5px 10px; /* Add some padding for better aesthetics */
-  border-radius: 5px; /* Round the corners */
+  background-color: rgba(0, 0, 0, 0.6); 
+  padding: 5px 10px; 
+  border-radius: 5px; 
 }
 
 div.product-card .more-detail-btn {
@@ -97,33 +124,12 @@ div.product-card .more-detail-btn:hover {
   color: white;
 }
 
-.header {
-  position: relative;
-  width: 100%;
-  height: 100vh; 
-  overflow: hidden;
-}
-
-.header-image-container {
-  position: relative;
-  width: 100%;
-  height: 120%;
-}
-
-.header-image {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
 div.pagination {
-  position: relative;  /* changed from relative to absolute */
+  position: relative; 
   right: 20px;
-  bottom: 20px;  /* new line to set position at bottom */
+  bottom: 20px;  
   display: flex;
-  justify-content: flex-end;  /* changed from center to flex-end */
+  justify-content: flex-end;  
   align-items: center;
   gap: 10px;
 }

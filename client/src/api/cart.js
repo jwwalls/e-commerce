@@ -1,6 +1,6 @@
 const BASE_URL = 'http://localhost:8080/api/cart';
 
-// Add an item to the cart
+
 // Add an item to the cart
 export async function addToCart(userId, productId, quantity, imageUrl, price) {
   try {

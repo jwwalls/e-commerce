@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { createUser, loginUser } from '../api/users';
 import '../css/Users.css';
 
-function User({ setToken, setUser }) {
+function User({ setToken, setUser, setAdmin }) {  // added setAdmin
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
@@ -14,8 +14,10 @@ function User({ setToken, setUser }) {
       if (data && data.token) {
         localStorage.setItem('token', data.token);
         localStorage.setItem('userId', data.user.id);
+        localStorage.setItem('admin', data.user.admin);  // save admin status
         setToken(data.token);
-        setUser(data.user); // Set the user state
+        setUser(data.user); 
+        setAdmin(data.user.admin);  // set admin status
         setUsername('');
         setPassword('');
         alert('Register Success!');
@@ -34,11 +36,12 @@ function User({ setToken, setUser }) {
       if (data && data.token) {
         localStorage.setItem('token', data.token);
         localStorage.setItem('userId', data.user.id);
+        localStorage.setItem('admin', data.user.admin);  // save admin status
         setToken(data.token);
-        setUser(data.user); // Set the user state
+        setUser(data.user); 
+        setAdmin(data.user.admin);  // set admin status
         setUsername('');
         setPassword('');
-
         alert('Login Success! Welcome to SHOENSTAR!');
       } else {
         console.error('Invalid username or password');
@@ -51,8 +54,10 @@ function User({ setToken, setUser }) {
   const logout = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('userId');
+    localStorage.removeItem('admin');  // remove admin status
     setToken('');
     setUser(null);
+    setAdmin(false);  // reset admin status
   };
 
   return (

@@ -16,7 +16,7 @@
 
 .card h1 {
   margin-bottom: 2rem;
-  color: #464646;
+  color: #ffffff;
 }
 
 .input-group {
@@ -40,7 +40,7 @@
   border: none;
   border-radius: .25rem;
   background-color: #ff5500;
-  color: #5b5b5b;
+  color: #ffffff;
   cursor: pointer;
   transition: background-color .3s;
 }

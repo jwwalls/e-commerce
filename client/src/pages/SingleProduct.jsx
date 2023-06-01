@@ -8,7 +8,6 @@ function SingleProduct() {
   const [product, setProduct] = useState(null);
   const [selectedSize, setSelectedSize] = useState('7');
 
-  // Define an array of shoe sizes
   const shoeSizes = [];
   for (let i = 7; i <= 13; i += 0.5) {
     shoeSizes.push(i.toString());
@@ -34,8 +33,6 @@ function SingleProduct() {
   
     fetchProduct();
   }, [id]);
-
-  // Handler function for the select element
   const handleSizeChange = (e) => {
     setSelectedSize(e.target.value);
   };
@@ -67,7 +64,7 @@ function SingleProduct() {
   );
 }
 const addToCart = (product, size) => {
-  // ...your code to add the product to the cart...
+
 };
 
 export default SingleProduct;

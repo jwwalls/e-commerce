@@ -39,7 +39,7 @@ const NavBar = () => {
           <NavLink to="/shop/sale">SALE</NavLink>
         </li>
         <li className="nav-item">
-          <Link to={`/cart/${userId}`} onClick={handleCartClick}>CHECKOUT</Link>
+          <Link to={`/cart/${userId}`} onClick={handleCartClick}>CART</Link>
         </li>
         <li className="nav-item">
           {userId ? (
